@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}{{ mission.title }} — KosmosZ{% endblock %}
+
+{% block content %}
+<div class="container">
+<section class="mission-hero">
+    <div class="mission-hero-text">
+        <h1>{{ mission.title.upper() }}</h1>
+        <p class="mission-meta-large">{{ mission.company }} · {{ mission.launch }} · {{ 'Активна' if mission.status == 'active' else 'Планируется' }}</p>
+        <p class="mission-description">{{ mission.description }}</p>
+        <a href="{{ url_for('apply', mission_id=mission.id) }}" class="btn">Подать заявку на миссию →</a>
+    </div>
+    <div class="mission-hero-image">
+        <div class="planet" style="--planet-glow: {% if mission.slug == 'luna' %}rgba(220, 220, 230, 0.35){% elif mission.slug == 'mars' %}rgba(220, 120, 70, 0.45){% elif mission.slug == 'venus' %}rgba(240, 210, 140, 0.40){% endif %}; --planet-scale: {% if mission.slug == 'luna' %}1.1{% elif mission.slug == 'mars' %}1.35{% elif mission.slug == 'venus' %}1.35{% endif %}; --planet-offset: {% if mission.slug == 'luna' %}0{% elif mission.slug == 'mars' %}120px{% elif mission.slug == 'venus' %}120px{% endif %};">
+            <img src="{{ url_for('static', filename='img/' + mission.image) }}" alt="{{ mission.planet }}" width="400" height="400">
+        </div>
+    </div>
+</section>
+
+<p class="back-link"><a href="{{ url_for('missions') }}">← Все миссии</a></p>
+</div>
+{% endblock %}

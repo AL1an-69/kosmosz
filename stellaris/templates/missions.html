@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Миссии — KosmosZ{% endblock %}
+
+{% block content %}
+<div class="container">
+<section class="page-header">
+    <h1>Миссии</h1>
+</section>
+
+<div class="filter">
+    <a href="{{ url_for('missions') }}" class="{% if not current_filter %}active{% endif %}">Все</a>
+    {% for planet in planets %}
+    <a href="{{ url_for('missions', planet=planet) }}" class="{% if current_filter == planet %}active{% endif %}">{{ planet }}</a>
+    {% endfor %}
+</div>
+
+<section class="missions-list">
+    {% for mission in missions %}
+    <a href="{{ url_for('mission_detail', mission_id=mission.id) }}" class="mission-item">
+        <img src="{{ url_for('static', filename='img/' + mission.image) }}" alt="{{ mission.planet }}" width="80" height="80">
+        <div class="mission-info">
+            <div class="mission-title">{{ mission.title }}</div>
+            <div class="mission-meta">{{ mission.company }} · {{ mission.launch }}</div>
+            <div class="mission-meta">
+                <span class="status-{{ mission.status }}">{{ 'Активна' if mission.status == 'active' else 'Планируется' }}</span>
+                · {{ mission.short }}
+            </div>
+        </div>
+        <span class="arrow">→</span>
+    </a>
+    {% endfor %}
+</section>
+</div>
+{% endblock %}

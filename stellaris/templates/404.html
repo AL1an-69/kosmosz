@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}404 — Не найдено{% endblock %}
+
+{% block content %}
+<section class="error-page">
+    <h1>404</h1>
+    <p>Страница не найдена</p>
+    <p class="error-subtitle">Запрашиваемый ресурс не существует или был перемещён.</p>
+    <a href="{{ url_for('index') }}" class="btn">Вернуться на главную</a>
+</section>
+{% endblock %}

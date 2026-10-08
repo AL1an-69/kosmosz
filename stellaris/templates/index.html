@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}KosmosZ — Colony Command{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <video class="hero-video" autoplay muted loop playsinline preload="auto">
+        <source src="{{ url_for('static', filename='img/rocket.mp4') }}" type="video/mp4">
+    </video>
+
+    <div class="hero-brand">
+        <span>KosmosZ</span>
+        <span>COLONY</span>
+        <span>COMMAND</span>
+    </div>
+</section>
+
+<div class="container">
+    <div class="hero-tagline">
+        База данных планет Солнечной системы<br>
+        и программа их колонизации
+    </div>
+
+    <section class="stat-grid">
+        <div class="stat-item">
+            <div class="stat-value">{{ planets_count }}</div>
+            <div class="stat-label">ПЛАНЕТЫ-КАНДИДАТА</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-value">{{ "{:,}".format(colonists_count).replace(",", " ") }}</div>
+            <div class="stat-label">КОЛОНИЗАТОРОВ</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-value">{{ active_missions_count }}</div>
+            <div class="stat-label">АКТИВНЫЕ МИССИИ</div>
+        </div>
+    </section>
+
+    <section class="active-missions">
+        <h2>Активные миссии</h2>
+        {% for mission in active_missions %}
+        <a href="{{ url_for('mission_detail', mission_id=mission.id) }}" class="mission-item">
+            <img src="{{ url_for('static', filename='img/' + mission.image) }}" alt="{{ mission.planet }}" width="80"
+                height="80">
+            <div class="mission-info">
+                <div class="mission-title">{{ mission.title }}</div>
+                <div class="mission-meta">{{ mission.company }} · {{ mission.launch }} · {{ mission.short }}</div>
+            </div>
+            <span class="arrow">→</span>
+        </a>
+        {% endfor %}
+    </section>
+</div>
+{% endblock %}

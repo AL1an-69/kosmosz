@@ -1,0 +1,673 @@
+body {
+    background: #000;
+    color: #fff;
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 19px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: transparent;
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border-bottom: none;
+    height: 64px;
+}
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.logo {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+}
+
+.header-logo {
+    width: 240px;
+    height: 240px;
+    object-fit: contain;
+    display: block;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav a {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #8a8a8a;
+    text-decoration: none;
+    padding: 0 20px;
+    transition: color 0.2s;
+}
+
+.nav a + a::before {
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 12px;
+    background: #2a2a2a;
+    margin-right: 20px;
+    vertical-align: middle;
+}
+
+.nav a:hover {
+    color: #fff;
+}
+
+.nav a.active {
+    color: #fff;
+}
+
+.hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    background: #000;
+}
+
+.hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    filter: brightness(0.75);
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.85) 0%,
+        rgba(0,0,0,0.50) 40%,
+        rgba(0,0,0,0.20) 100%
+    );
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hero-brand {
+    position: absolute;
+    left: 60px;
+    bottom: 100px;
+    z-index: 2;
+    text-align: left;
+    font-family: 'Cormorant Garamond', serif;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    line-height: 1;
+    color: #fff;
+}
+
+.hero-brand span {
+    display: block;
+    font-size: 64px;
+    font-weight: 500;
+}
+
+
+@media (max-width: 640px) {
+    .hero-brand {
+        left: 24px;
+        bottom: 90px;
+    }
+    .hero-brand span {
+        font-size: 32px;
+    }
+}
+.hero-tagline {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #8a8a8a;
+    text-align: center;
+    padding: 40px 0 20px;
+    margin: 0;
+}
+
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid #2a2a2a;
+    border-bottom: 1px solid #2a2a2a;
+}
+
+.stat-item {
+    padding: 32px 24px;
+    text-align: center;
+    border-right: 1px solid #2a2a2a;
+}
+
+.stat-item:last-child {
+    border-right: none;
+}
+
+.stat-value {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 44px;
+    font-weight: 500;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.stat-label {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #8a8a8a;
+}
+
+.active-missions {
+    padding: 80px 0;
+}
+
+.active-missions h2 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 36px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin: 0 0 40px;
+}
+
+.mission-item {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    padding: 32px 0;
+    border-bottom: 1px solid #2a2a2a;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.2s;
+}
+
+.mission-item:hover {
+    opacity: 0.7;
+}
+
+.mission-item img {
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.mission-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.mission-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+.mission-meta {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 13px;
+    color: #8a8a8a;
+    line-height: 1.5;
+}
+
+.mission-meta .status-active {
+    color: #fff;
+}
+
+.mission-meta .status-planned {
+    color: #8a8a8a;
+}
+
+.arrow {
+    color: #8a8a8a;
+    font-size: 20px;
+    margin-left: auto;
+    flex-shrink: 0;
+    transition: color 0.2s;
+}
+
+.mission-item:hover .arrow {
+    color: #fff;
+}
+
+.page-header {
+    padding: 80px 0 40px;
+}
+
+.page-header h1 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 48px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin: 0 0 16px;
+}
+
+.page-subtitle {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 22px;
+    font-style: italic;
+    color: #8a8a8a;
+    margin: 0;
+}
+
+.filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 24px 0;
+    border-bottom: 1px solid #2a2a2a;
+    margin-bottom: 24px;
+}
+
+.filter a {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #8a8a8a;
+    text-decoration: none;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.filter a:hover {
+    color: #fff;
+    border-color: #2a2a2a;
+}
+
+.filter a.active {
+    color: #fff;
+    border-color: #fff;
+}
+
+.missions-list {
+    padding: 0 0 40px;
+}
+
+.mission-hero {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 60px;
+    align-items: center;
+    padding: 40px 0 80px;
+    margin-left: -40px;
+}
+
+@media (min-width: 1100px) {
+    .mission-hero {
+        margin-left: -120px;
+    }
+}
+
+.mission-hero-text h1 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 72px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1.15;
+    margin: 0 0 24px;
+}
+
+.mission-meta-large {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 19px;
+    font-style: italic;
+    color: #8a8a8a;
+    margin: 0 0 32px;
+}
+
+.mission-description {
+    font-size: 19px;
+    line-height: 1.8;
+    margin: 0 0 40px;
+}
+
+.mission-hero-image {
+    position: relative;
+    max-width: 720px;
+    justify-self: end;
+}
+
+.mission-hero-image img {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.mission-hero .planet {
+    transform: scale(var(--planet-scale, 1)) translateX(var(--planet-offset, 0));
+    transform-origin: center right;
+    position: relative;
+}
+
+.mission-hero .planet::before {
+    content: "";
+    position: absolute;
+    inset: -25%;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--planet-glow) 0%, transparent 70%);
+    filter: blur(80px);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.back-link {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #8a8a8a;
+    margin-top: 40px;
+    display: block;
+}
+
+.back-link a {
+    color: #8a8a8a;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.back-link a:hover {
+    color: #fff;
+}
+
+.application-form {
+    max-width: 520px;
+}
+
+.form-group {
+    margin-bottom: 32px;
+}
+
+.form-group label {
+    display: block;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #8a8a8a;
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #2a2a2a;
+    color: #fff;
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 19px;
+    line-height: 1.5;
+    padding: 8px 0;
+    width: 100%;
+    border-radius: 0;
+    outline: none;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-bottom-color: #fff;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #4a4a4a;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.btn {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 14px 32px;
+    border: 1px solid #fff;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.btn:hover {
+    background: #fff;
+    color: #000;
+}
+
+.errors {
+    border-left: 2px solid #c14a4a;
+    padding-left: 20px;
+    margin-bottom: 40px;
+    list-style: none;
+}
+
+.errors li {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 17px;
+    font-style: italic;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.errors li:last-child {
+    margin-bottom: 0;
+}
+
+.flash {
+    border-left: 2px solid #fff;
+    padding: 16px 20px;
+    margin-bottom: 16px;
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 17px;
+    font-style: italic;
+    color: #fff;
+}
+
+.application-details {
+    margin-top: 40px;
+}
+
+.detail-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 20px 0;
+    border-bottom: 1px solid #2a2a2a;
+}
+
+.detail-label {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #8a8a8a;
+    min-width: 160px;
+    flex-shrink: 0;
+}
+
+.detail-value {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 19px;
+    flex: 1;
+}
+
+.about-content {
+    margin-top: 40px;
+}
+
+.about-content p {
+    margin-bottom: 24px;
+}
+
+.about-content p:last-child {
+    margin-bottom: 0;
+}
+
+.error-page {
+    text-align: center;
+    padding: 120px 0;
+}
+
+.error-page h1 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 120px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    margin: 0 0 16px;
+}
+
+.error-page p {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 28px;
+    font-style: italic;
+    color: #8a8a8a;
+    margin: 0 0 40px;
+}
+
+.error-subtitle {
+    font-size: 19px !important;
+    margin-bottom: 48px !important;
+}
+
+.site-footer {
+    border-top: 1px solid #2a2a2a;
+    margin-top: 120px;
+    padding: 40px 0;
+}
+
+.site-footer .container {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #8a8a8a;
+    text-align: center;
+}
+
+@media (max-width: 640px) {
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .hero-subtitle {
+        font-size: 18px;
+    }
+
+    .stat-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-item {
+        border-right: none;
+        border-bottom: 1px solid #2a2a2a;
+        padding: 24px 16px;
+    }
+
+    .stat-item:last-child {
+        border-bottom: none;
+    }
+
+    .mission-hero {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .mission-hero-text h1 {
+        font-size: 48px;
+    }
+
+    .mission-hero-image {
+        max-width: 280px;
+        margin: 0 auto;
+    }
+
+    .site-header {
+        height: auto;
+        padding: 16px 0;
+    }
+
+    .header-inner {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .nav a {
+        padding: 0 12px;
+    }
+
+    .nav a + a::before {
+        margin: 0 12px;
+    }
+
+    .filter a {
+        padding: 6px 12px;
+        font-size: 11px;
+    }
+
+    .detail-row {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .detail-label {
+        min-width: auto;
+    }
+}

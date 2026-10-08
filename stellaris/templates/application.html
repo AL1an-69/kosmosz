@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Заявка №{{ application.id }} — KosmosZ{% endblock %}
+
+{% block content %}
+<div class="container">
+<section class="page-header">
+    <h1>Заявка №{{ application.id }} принята</h1>
+</section>
+
+<div class="application-details">
+    <div class="detail-row">
+        <span class="detail-label">Миссия</span>
+        <span class="detail-value">{{ mission.title }}</span>
+    </div>
+    <div class="detail-row">
+        <span class="detail-label">Планета</span>
+        <span class="detail-value">{{ mission.planet }}</span>
+    </div>
+    <div class="detail-row">
+        <span class="detail-label">Компания</span>
+        <span class="detail-value">{{ mission.company }}</span>
+    </div>
+    <div class="detail-row">
+        <span class="detail-label">Командир</span>
+        <span class="detail-value">{{ application.commander }}</span>
+    </div>
+    <div class="detail-row">
+        <span class="detail-label">Размер экипажа</span>
+        <span class="detail-value">{{ application.crew_size }}</span>
+    </div>
+    <div class="detail-row">
+        <span class="detail-label">Дата запуска</span>
+        <span class="detail-value">{{ application.launch_date }}</span>
+    </div>
+    <div class="detail-row">
+        <span class="detail-label">Цель миссии</span>
+        <span class="detail-value">{{ application.goal }}</span>
+    </div>
+</div>
+
+<p class="back-link"><a href="{{ url_for('mission_detail', mission_id=mission.id) }}">← Вернуться к миссии</a></p>
+</div>
+{% endblock %}
