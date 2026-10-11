@@ -272,6 +272,33 @@ html, body {
     color: #fff;
 }
 
+.mission-item {
+    transition: background 0.2s ease;
+}
+.mission-item:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+.mission-item .arrow {
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+.mission-item:hover .arrow {
+    transform: translateX(6px);
+    color: #ffffff;
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+    border-bottom-color: #555555;
+}
+
+.flash {
+    transition: background 0.2s ease;
+}
+.flash:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
 .page-header {
     padding: 80px 0 40px;
 }
@@ -669,5 +696,40 @@ html, body {
 
     .detail-label {
         min-width: auto;
+    }
+}
+
+@media (max-width: 900px) {
+    .mission-hero {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        margin-left: 0;
+    }
+    .mission-hero img {
+        max-width: 380px;
+        margin: 0 auto;
+        justify-self: center;
+    }
+    .stat-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .stat-card:nth-child(3) {
+        grid-column: span 2;
+        border-right: none;
+    }
+}
+
+@media (max-width: 400px) {
+    body {
+        font-size: 16px;
+    }
+    .hero-brand span {
+        font-size: 24px;
+    }
+    h1 {
+        font-size: 36px;
+    }
+    h2 {
+        font-size: 24px;
     }
 }

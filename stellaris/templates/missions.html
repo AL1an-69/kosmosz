@@ -30,6 +30,9 @@
         <span class="arrow">→</span>
     </a>
     {% endfor %}
+    {% if not missions %}
+        <p class="empty-state">Миссии не найдены.</p>
+    {% endif %}
 </section>
 </div>
 {% endblock %}
